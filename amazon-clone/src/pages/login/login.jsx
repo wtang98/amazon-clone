@@ -1,8 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./login.scss"
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { auth } from '../../jses/Firebase';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const signIn = (e) => {
+        e.preventDefault();
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(auth => {
+                navigate('/')
+            })
+            .catch(error => alert(error.message))
+    }
+
+    const register = (e) => {
+        e.preventDefault();
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((auth)=> {
+                console.log(auth);
+                if(auth){
+                    navigate('/');
+                }
+            })
+            .catch(error => alert(error.message))
+    }
+
     return (
         <div className="login">
             <Link to ="/" style={{ textDecoration: 'none' }}>
@@ -13,12 +42,12 @@ const Login = () => {
 
                 <form action="">
                     <h5>Email</h5>
-                    <input type="text" />
+                    <input type="text" value={email} onChange={e=> setEmail(e.target.value)}/>
 
                     <h5>Password</h5>
-                    <input type="password" />
+                    <input type="password" value={password}  onChange={e=> setPassword(e.target.value)} />
 
-                    <button className="login__container-loginB">Sign In</button>
+                    <button className="login__container-loginB" type="submit" onClick={signIn} >Sign In</button>
                 </form>
 
                 <p>
@@ -26,7 +55,7 @@ const Login = () => {
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
 
-                <button className="login__container-registerB">Create your Amazon account</button>
+                <button className="login__container-registerB" onClick={register}>Create your Amazon account</button>
             </div>
         </div>
     )

@@ -6,7 +6,7 @@ const Product = (props) => {
     const {id, title, image, price, rating} = props
 
     const [{basket}, dispatch] = useStateValue();
-    console.log("this is basket >>>", basket)
+    // console.log("this is basket >>>", basket)
 
     const addToBasket = () => {
         //dispatch item into data layer
