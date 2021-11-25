@@ -3,7 +3,7 @@ import { useStateValue } from '../../../jses/StateProvider'
 import './product.scss'
 
 const Product = (props) => {
-    const {title, image, price, rating} = props
+    const {id, title, image, price, rating} = props
 
     const [{basket}, dispatch] = useStateValue();
     console.log("this is basket >>>", basket)
@@ -13,7 +13,7 @@ const Product = (props) => {
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
-                // id: id,
+                id: id,
                 title: title,
                 image: image,
                 price: price,

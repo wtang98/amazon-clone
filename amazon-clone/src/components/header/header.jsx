@@ -20,10 +20,12 @@ const Header = () => {
             </div>
             
             <div className="header__right">
-                <div className="header__right-option">
-                    <span className="header__right-option-lineOne">hello</span>
-                    <span className="header__right-option-lineTwo">Sign In</span>
-                </div>
+                <Link to="/login" style={{ textDecoration: 'none' }}>
+                    <div className="header__right-option">
+                        <span className="header__right-option-lineOne">hello</span>
+                        <span className="header__right-option-lineTwo">Sign In</span>
+                    </div>
+                </Link>
                 <div className="header__right-option">
                     <span className="header__right-option-lineOne">Returns</span>
                     <span className="header__right-option-lineTwo">& Orders</span>
