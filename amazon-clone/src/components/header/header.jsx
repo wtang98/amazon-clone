@@ -5,11 +5,10 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 import { Link } from 'react-router-dom'
 import { useStateValue } from '../../jses/StateProvider'
 import { auth } from '../../jses/Firebase'
-// import { getUserName } from '../../jses/reducer'
 
 const Header = () => {
     const [{basket, user}, dispatch] = useStateValue();
-    const name = user.email.split('@');
+    const name = user?.email.split('@');
 
     const handleAuth = () => {
         if(user){
