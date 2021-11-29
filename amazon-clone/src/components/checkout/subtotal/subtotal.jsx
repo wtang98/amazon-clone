@@ -14,7 +14,6 @@ const Subtotal = () => {
             <CurrencyFormat
                 renderText={(value)=> (
                     <> 
-                    {/* figureout below line*/}
                         <p>SubTotal ({basket.length} items): <strong>{value}</strong></p> 
                         <small className="subtotal__gift">
                             <input type="checkbox" />&nbsp; This order contains a gift
@@ -22,7 +21,6 @@ const Subtotal = () => {
                     </>
                 )}
                 decimalScale={2}
-                // figureout below line
                 value={getBasketTotal(basket)}
                 displayType={"text"}
                 thousandSeparator={true}

@@ -16,12 +16,13 @@
             &-title{
                 flex: 0.2;
             }
-            &-address, &-items{
+            &-address, &-items, &-details{
                 flex: 0.8;
             }
-            &-details{
-
+            &-items{
             }
+            &-details{
+            }   
         }
     }
 }
