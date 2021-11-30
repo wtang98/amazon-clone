@@ -15,7 +15,7 @@ const productFile = [
     },
     {
         id: 4903850,
-        title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+        title: "Fitbit Charge 3 Advanced Fitness Tracker with Heart Rate, Swim Tracking & 7 Day Battery",
         price: 199.99,
         image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
         rating: 3

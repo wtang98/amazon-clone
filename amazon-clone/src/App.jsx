@@ -4,6 +4,7 @@ import Home from './components/home/home';
 import Checkout from './components/checkout/checkout';
 import Payment from './components/checkout/payment/payment';
 import Login from './pages/login/login'
+import Orders from './components/orders/orders';
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import { useEffect } from 'react';
 import { auth } from './jses/Firebase';
@@ -41,6 +42,7 @@ const App = () => {
 					<Route path="/login" element={<Login/>}/>
 					<Route path="/payment" element={[<Header/>,<Elements stripe={promise}><Payment/></Elements> ]}/>
 					<Route path="/checkout" element={[<Header/>,<Checkout/>]}/>
+					<Route path="/orders" element={[<Header/>,<Orders/>]}/>
 					<Route path="/" redirect="/" element={[<Header/>, <Home/>]}/>
 				</Routes>
 			</div>

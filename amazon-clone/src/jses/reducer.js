@@ -14,6 +14,12 @@ const reducer = (state, action) => {
                 basket : [...state.basket, action.item], //idk
             };
 
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: [],
+            }
+
         case 'REMOVE_FROM_BASKET':
             //will delete the correct item but the first one before the rest e.g u clicked on 2nd one it will delete 1st
             const index = state.basket.findIndex(           //finds the index of the item you click on
@@ -30,7 +36,7 @@ const reducer = (state, action) => {
                 basket: newBasket //returns copied array as new array for the updated basket
             };
         case 'SET_USER':
-            return{
+            return {
                 ...state,
                 user: action.user
             };

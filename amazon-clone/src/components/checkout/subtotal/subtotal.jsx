@@ -9,6 +9,14 @@ const Subtotal = () => {
     const navigate  = useNavigate();
     const [{basket}, dispatch] = useStateValue();
 
+    const proceedToC = () => {
+        if(basket.length>0){
+            navigate('/payment')
+        }else{
+            window.alert("Add an item to your basket")
+        }
+    }
+
     return (
         <div className="subtotal">
             <CurrencyFormat
@@ -26,7 +34,7 @@ const Subtotal = () => {
                 thousandSeparator={true}
                 prefix={"£"}
             />
-            <button onClick={e=> navigate('/payment')}>Proceed to Checkout</button>
+            <button onClick={proceedToC}>Proceed to Checkout</button>
         </div>
     )
 }

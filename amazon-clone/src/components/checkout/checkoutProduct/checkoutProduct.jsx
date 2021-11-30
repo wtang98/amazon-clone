@@ -3,7 +3,7 @@ import { useStateValue } from '../../../jses/StateProvider'
 import './checkoutProduct.scss'
 
 const CheckoutProduct = (props) => {
-    const {id, image, title, price, rating} = props
+    const {id, image, title, price, rating, hide} = props
     const [{basket}, dispatch] = useStateValue();
 
     const removeFromBasket = () => {
@@ -29,7 +29,9 @@ const CheckoutProduct = (props) => {
                         <p>⭐</p>
                     ))}
                 </div>
-                <button onClick={removeFromBasket}>Remove from Basket</button>
+                {!hide && (
+                    <button onClick={removeFromBasket}>Remove from Basket</button>
+                )}
             </div>
         </div>
     )

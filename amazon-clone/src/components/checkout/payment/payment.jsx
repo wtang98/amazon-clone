@@ -6,6 +6,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import { getBasketTotal } from '../../../jses/reducer'
+import { db } from '../../../jses/Firebase'
 import axios from '../../../jses/axios';
 
 //important as you are dealing with peoples money
@@ -39,7 +40,7 @@ const Payment = () => {
         getClientSecret(); //call function in the useeffect- its how you run an ansyc func in a useeffect
     }, [basket])
     
-    console.log("the secret is >>>", clientSecret);
+    // console.log("the secret is >>>", clientSecret);//hide this lool
 
     const handleSubmit = async(e) => {
         //handles stripe stuff
@@ -52,9 +53,23 @@ const Payment = () => {
             }
         }).then(({paymentIntent}) => {//.then cos its a promise
             //paymentIntent = payment confirmation
+            db
+                .collection('users')
+                .doc(user?.uid)// id seems to work the same but its should be uid but that doesnt work??? 
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                })
+
             setSucceeded(true)
             setError(null)
             setProcessing(false)
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
             navigate('/orders')
         })
         //const payload = await stripe 
@@ -118,7 +133,6 @@ const Payment = () => {
                                     prefix={"£"}
                                 />
                                 <button disabled={processing || disabled || succeeded}>
-                                    {/* disabled when those three. but only switches to processing on processing */}
                                     <span>{processing?<p>Processing</p>: "Buy Now"}</span>
                                 </button>
                                 {/* error handler, state written above */}
