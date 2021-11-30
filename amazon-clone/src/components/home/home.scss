@@ -4,12 +4,27 @@
     margin: 0 auto;
     max-width: 1500px;
     &__container{
-
-        &-image{
-            width: 100%;
-            z-index: -1;
-            margin-bottom: -150px;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        &-carousel{
+            position: relative;
+            &-center{
+                // max-width: 1500px;
+                width: 100%;
+                z-index: -1;
+                margin-bottom: -150px;
+                mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent);
+            }
+            &-left{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                z-index:9999;
+            }
+            &-right{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                z-index:9999;
+            }
         }
         &-row{
             display: flex;
