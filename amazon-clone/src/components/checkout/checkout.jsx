@@ -14,7 +14,7 @@ const Checkout = () => {
             <div className="checkout__left">
                 <img className="checkout__left-ad" src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" alt="" />
                 <div>
-                    <h3>Hello, {name[0]}</h3>
+                    <h3>Hello, {user? name[0]: "Guest"}</h3>
                     <h2 className="checkout__left-title">Your shopping Basket</h2>
                     {/* <FlipMove> */}
                         {basket.map(item => (
