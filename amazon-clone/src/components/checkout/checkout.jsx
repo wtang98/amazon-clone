@@ -17,7 +17,7 @@ const Checkout = () => {
                     <h3>Hello, {user? name[0]: "Guest"}</h3>
                     <h2 className="checkout__left-title">Your shopping Basket</h2>
                     {/* <FlipMove> */}
-                        {basket.map(item => (
+                        {basket?.map(item => (
                             <CheckoutProduct
                                 key={item.id}
                                 id={item.id}

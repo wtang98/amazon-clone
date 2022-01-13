@@ -15,6 +15,11 @@ const Header = () => {
             auth.signOut();
         }
     }
+    const preventNoUser = () => {
+        if(!user){
+            alert("please login to go to your basket")
+        }
+    }
 
     return (
         <div className="header">
@@ -44,9 +49,9 @@ const Header = () => {
                     <span className="header__right-option-lineOne">Your</span>
                     <span className="header__right-option-lineTwo">Prime</span>
                 </div>
-                <Link to="/checkout" style={{ textDecoration: 'none' }}>
+                <Link to={user? "/checkout" :"/"} style={{ textDecoration: 'none' }}>
                     <div className="header__right-optionBasket">
-                        <ShoppingBasketIcon/>
+                        <ShoppingBasketIcon onClick={preventNoUser}/>
                         <span className="header__right-option-lineTwo header__right-optionBasket-count">
                             {basket?.length}
                         </span>
