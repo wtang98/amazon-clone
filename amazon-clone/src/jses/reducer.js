@@ -5,24 +5,24 @@ export const initialState = {
 
 export const getBasketTotal = (basket) => basket?.reduce((amount, item) => item.price + amount,0);
 
-const reducer = (state, action) => {
+const reducer = (state, action) => {//state is the current state of the application 
     console.log(action)
     switch(action.type){// action.type is the action of the user
         case 'ADD_TO_BASKET':
             return {
-                ...state, //idk
-                basket : [...state.basket, action.item], //idk
+                ...state, //copies current basket with spread operator
+                basket : [...state.basket, action.item], //update basket to include the old basket and new item
             };
 
         case 'EMPTY_BASKET':
             return {
                 ...state,
-                basket: [],
+                basket: [], //deletes all
             }
 
         case 'REMOVE_FROM_BASKET':
             //will delete the correct item but the first one before the rest e.g u clicked on 2nd one it will delete 1st
-            const index = state.basket.findIndex(           //finds the index of the item you click on
+            const index = state.basket.findIndex(//finds the index of the item you click on
                 (basketItem) => basketItem.id === action.id
             );
             let newBasket = [...state.basket]; //copies the basket
@@ -40,7 +40,7 @@ const reducer = (state, action) => {
                 ...state,
                 user: action.user
             };
-
+            
         default:
             return state;
     }

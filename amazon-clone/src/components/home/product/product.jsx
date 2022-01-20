@@ -5,7 +5,7 @@ import './product.scss'
 const Product = (props) => {
     const {id, title, image, price, rating} = props
 
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket}, dispatch] = useStateValue();// pulls data from the data layer
     // console.log("this is basket >>>", basket)
 
     const addToBasket = () => {

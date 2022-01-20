@@ -26,8 +26,7 @@ const Payment = () => {
     const navigate = useNavigate();
     
     useEffect(()=> {
-        //generat the client secret for stripe. when ever the basket changes a new secret is made
-        //basket in square barket means every change to basket the useeffect fires again.
+        //generate the client secret for stripe. when ever the basket changes a new secret is made
         //take care when writing these lines of code. dont mess with peoples money
         const getClientSecret = async () => {
             const response = await axios({

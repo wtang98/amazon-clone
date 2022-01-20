@@ -39,22 +39,17 @@ const Login = () => {
             </Link>
             <div className="login__container">
                 <h1>Sign In</h1>
-
                 <form action="">
                     <h5>Email</h5>
                     <input type="text" value={email} onChange={e=> setEmail(e.target.value)}/>
-
                     <h5>Password</h5>
                     <input type="password" value={password}  onChange={e=> setPassword(e.target.value)} />
-
                     <button className="login__container-loginB" type="submit" onClick={signIn} >Sign In</button>
                 </form>
-
                 <p>
                     By signing-in you agree to FAKE AMAZON's Conditions of Use & Sale. Please
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
-
                 <button className="login__container-registerB" onClick={register}>Create your Amazon account</button>
             </div>
         </div>

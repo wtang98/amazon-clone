@@ -26,12 +26,10 @@ const Header = () => {
             <Link to="/">
                 <img className="header__logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
             </Link>
-            
             <div className="header__search">
                 <input type="text" className="header__search-input" />
                 <SearchIcon className="header__search-icon"/>
             </div>
-            
             <div className="header__right">
                 <Link to={!user && "/login"} style={{ textDecoration: 'none' }}>
                     <div onClick={handleAuth} className="header__right-option">
@@ -49,7 +47,7 @@ const Header = () => {
                     <span className="header__right-option-lineOne">Your</span>
                     <span className="header__right-option-lineTwo">Prime</span>
                 </div>
-                <Link to={user? "/checkout" :"/"} style={{ textDecoration: 'none' }}>
+                <Link to={user? "/checkout" : "/"} style={{ textDecoration: 'none' }}>
                     <div className="header__right-optionBasket">
                         <ShoppingBasketIcon onClick={preventNoUser}/>
                         <span className="header__right-option-lineTwo header__right-optionBasket-count">
@@ -58,9 +56,6 @@ const Header = () => {
                     </div>
                 </Link>
             </div>
-
-
-
         </div>
     )
 }

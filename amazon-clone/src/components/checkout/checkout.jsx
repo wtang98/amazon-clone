@@ -16,7 +16,6 @@ const Checkout = () => {
                 <div>
                     <h3>Hello, {user? name[0]: "Guest"}</h3>
                     <h2 className="checkout__left-title">Your shopping Basket</h2>
-                    {/* <FlipMove> */}
                         {basket?.map(item => (
                             <CheckoutProduct
                                 key={item.id}
@@ -27,7 +26,6 @@ const Checkout = () => {
                                 rating={item.rating}
                             />
                         ))}
-                    {/* </FlipMove> */}
                 </div>
             </div>
             <div className="checkout__right">
