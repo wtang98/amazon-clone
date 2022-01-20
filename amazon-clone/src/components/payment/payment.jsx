@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import './payment.scss'
-import { useStateValue } from '../../../jses/StateProvider'
-import CheckoutProduct from '../checkoutProduct/checkoutProduct'
+import { useStateValue } from '../../jses/StateProvider'
+import CheckoutProduct from '../checkout/checkoutProduct/checkoutProduct'
 import {Link, useNavigate} from 'react-router-dom'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
-import { getBasketTotal } from '../../../jses/reducer'
-import { db } from '../../../jses/Firebase'
-import axios from '../../../jses/axios';
+import { getBasketTotal } from '../../jses/reducer'
+import { db } from '../../jses/Firebase'
+import axios from '../../jses/axios';
 
 //important as you are dealing with peoples money
 const Payment = () => {
@@ -62,7 +62,6 @@ const Payment = () => {
                     amount: paymentIntent.amount,
                     created: paymentIntent.created
                 })
-
             setSucceeded(true)
             setError(null)
             setProcessing(false)

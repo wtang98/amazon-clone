@@ -2,7 +2,7 @@ import './App.scss';
 import Header from './components/header/header';
 import Home from './components/home/home';
 import Checkout from './components/checkout/checkout';
-import Payment from './components/checkout/payment/payment';
+import Payment from './components/payment/payment';
 import Login from './pages/login/login'
 import Orders from './components/orders/orders';
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
