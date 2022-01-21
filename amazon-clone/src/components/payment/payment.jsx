@@ -39,13 +39,16 @@ const Payment = () => {
         getClientSecret(); //call function in the useeffect- its how you run an ansyc func in a useeffect
     }, [basket])
     
-    // console.log("the secret is >>>", clientSecret);//hide this lool
+    //do not uncomment ever lool //do not uncomment ever lool //do not uncomment ever lool
+    //do not uncomment ever lool // console.log("the secret is >>>", clientSecret);//do not uncomment ever lool
+    //do not uncomment ever lool //do not uncomment ever lool //do not uncomment ever lool
 
     const handleSubmit = async(e) => {
         //handles stripe stuff
         e.preventDefault();
         setProcessing(true);
         //any payment platform needs a client secret. we do this using a state
+        //cant do anything without
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {// uses the client secret to know how much to charge
                 card: element.getElement(CardElement)// imported at the top and then instantiated
